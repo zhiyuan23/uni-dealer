@@ -12,3 +12,12 @@ export function homeInfo(data) {
         hideloading: true
     })
 }
+
+// 登录
+export function login(params) {
+    return request({
+        url: api.Login,
+        method: 'post',
+        params
+    })
+}

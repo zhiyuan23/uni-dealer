@@ -7,17 +7,30 @@
 </template>
 
 <script>
-    import { homeInfo } from '@/api/home'
+    import { homeInfo, login } from '@/api/home'
 	export default {
 		data() {
 			return {
-				title: 'Hello1'
+				title: 'Hello'
 			}
 		},
 		onLoad() {
+			login({
+				userName: 'test4',
+				password: '123456'
+			}).then(data => {
+                localStorage.setItem('orgId', data.data.orgId)
+			})
             homeInfo().then(data => {
-                console.log(data)
-            })
+				uni.showToast({
+					title: '请求成功'
+				})
+				this.title = data.data
+            }).catch(e => {
+				uni.showToast({
+					title: '请求失败'
+				})
+			})
 		},
 		methods: {
 
