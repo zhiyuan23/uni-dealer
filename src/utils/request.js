@@ -15,8 +15,6 @@ const service = axios.create({
 // request拦截器 request interceptor
 service.interceptors.request.use(
     config => {
-        console.log('baseUrl')
-        console.log(baseUrl)
     // 不传递默认开启loading
         if (!config.hideloading) {
             // loading

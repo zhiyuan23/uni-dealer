@@ -25,7 +25,7 @@
 				uni.showToast({
 					title: '请求成功'
 				})
-				this.title = data.data
+				this.title = data.data.orgName
             }).catch(e => {
 				uni.showToast({
 					title: '请求失败'
