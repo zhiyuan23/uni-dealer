@@ -1,6 +1,5 @@
 <template>
 	<view class="content">
-		<image class="logo" src="/static/logo.png"></image>
 		<view>
 			<text class="title">{{title}}</text>
 		</view>
@@ -8,6 +7,7 @@
 </template>
 
 <script>
+    import { homeInfo } from '@/api/home'
 	export default {
 		data() {
 			return {
@@ -15,7 +15,9 @@
 			}
 		},
 		onLoad() {
-
+            homeInfo().then(data => {
+                console.log(data)
+            })
 		},
 		methods: {
 
